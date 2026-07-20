@@ -8,3 +8,9 @@ data/*
 
 *.log
 log.txt
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+.DS_Store
+Thumbs.db
