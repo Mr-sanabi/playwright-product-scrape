@@ -1,18 +1,8 @@
-# Playwright Product Scrape Lab
+# Playwright Scraping Lab
 
-A focused browser-automation lab for scraping JavaScript-rendered quote cards and exporting them to CSV.
+A Python 3.11+ learning project that scrapes JavaScript-rendered quotes into CSV. Despite the repository name, the current example collects quotes, not products.
 
-> This is an intentionally small Playwright lab rather than a general-purpose crawler.
-
-## Features
-
-- headless browser by default, with optional headed mode;
-- configurable URL, output path, and positive result limit;
-- explicit page timeout and guaranteed browser cleanup;
-- automatic creation of the output directory;
-- isolated writer tests that do not require launching a browser.
-
-## Setup and usage
+## Run
 
 ```bash
 python -m pip install -r requirements.txt
@@ -20,11 +10,9 @@ python -m playwright install chromium
 python -m src.main --limit 5 --output data/quotes.csv
 ```
 
-Show the browser window during a run:
+The default source is `https://quotes.toscrape.com/js/`. Add `--headed` to see the browser or `--url URL` to change the page.
 
-```bash
-python -m src.main --headed
-```
+Selectors are written for quote cards; changing the URL does not make this a general-purpose scraper. Tests cover the writer without launching a browser.
 
 ## Tests
 
@@ -32,7 +20,3 @@ python -m src.main --headed
 python -m pip install -r requirements-dev.txt
 python -m pytest -q
 ```
-
-## Stack
-
-Python 3.11+, Playwright, argparse, CSV, pytest.
